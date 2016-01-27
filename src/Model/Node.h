@@ -16,6 +16,7 @@ private:
 	Node * pointers;
 public:
 	Node();
+	Node(Type value);
 	virtual ~Node();
 	Type getValue();
 	Node * getPointers();
