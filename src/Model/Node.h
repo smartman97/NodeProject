@@ -1,0 +1,24 @@
+/*
+ * Node.h
+ *
+ *  Created on: Jan 27, 2016
+ *      Author: clar5254
+ */
+
+#ifndef MODEL_NODE_H_
+#define MODEL_NODE_H_
+
+template <class Type>
+class Node
+{
+private:
+	Type value;
+	Node * pointers;
+public:
+	Node();
+	virtual ~Node();
+	Type getValue();
+	Node * getPointers();
+};
+
+#endif /* MODEL_NODE_H_ */
