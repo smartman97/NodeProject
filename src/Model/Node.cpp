@@ -11,7 +11,6 @@
 template <class Type>
 Node<Type> :: Node()
 {
-	value = 0;
 	pointers = nullptr;
 }
 
@@ -26,6 +25,12 @@ template <class Type>
 Node<Type> :: ~Node()
 {
 
+}
+
+template <class Type>
+void Node<Type> :: setValue(Type value)
+{
+	this->value = value;
 }
 
 template <class Type>

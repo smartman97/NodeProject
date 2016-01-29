@@ -7,12 +7,19 @@
 
 #include "NodeController.h"
 
-NodeController::NodeController() {
-	// TODO Auto-generated constructor stub
+NodeController::NodeController()
+{
+	this->myNode.setValue(5);
+	this->stringArrayNode.setValue("words are fun");
+}
+
+NodeController::~NodeController()
+{
 
 }
 
-NodeController::~NodeController() {
-	// TODO Auto-generated destructor stub
+void NodeController :: start()
+{
+	cout << myNode.getValue() << endl;
+	cout << stringArrayNode.getValue() << endl;
 }
-

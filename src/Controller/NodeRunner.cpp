@@ -6,8 +6,11 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+#include "NodeController.h"
+
 int main()
 {
-
+	NodeController * baseController = new NodeController();
+	baseController->start();
 	return 0;
 }
