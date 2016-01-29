@@ -9,6 +9,8 @@
 #define CONTROLLER_NODECONTROLLER_H_
 
 #include "../Model/Node.h"
+#include "../Model/Node.cpp" //Must include a reference to .h and .cpp
+#include <iostream>
 
 class NodeController
 {
