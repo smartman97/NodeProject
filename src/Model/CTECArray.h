@@ -16,7 +16,6 @@ class CTECArray
 {
 private:
 	int size;
-	int length;
 	ArrayNode<Type> * head;
 
 public:
