@@ -14,6 +14,9 @@
 #include "../Model/ArrayNode.h"
 #include "../Model/ArrayNode.cpp"
 
+#include "../Model/CTECArray.h"
+#include "../Model/CTECArray.cpp"
+
 #include <iostream>
 #include <string>
 
@@ -22,8 +25,7 @@ using namespace std;
 class NodeController
 {
 private:
-	Node<int> myNode;
-	ArrayNode<string> stringArrayNode;
+	CTECArray<string> * myStringArray;
 public:
 	NodeController();
 	virtual ~NodeController();
