@@ -9,7 +9,7 @@
 
 NodeController::NodeController()
 {
-	myStringArray = new CTECArray<string>(5);
+	notHipsterInts = new CTECArray<int>(400);
 }
 
 NodeController::~NodeController()
@@ -19,20 +19,14 @@ NodeController::~NodeController()
 
 void NodeController :: start()
 {
-	string first = "first";
-	string second = "second";
-	string third = "third";
-	string fourth = "fourth";
-	string fifth = "fifth";
+	arrayTimer.startTimer();
 
-	myStringArray->set(0, first);
-	myStringArray->set(1, second);
-	myStringArray->set(2, third);
-	myStringArray->set(3, fourth);
-	myStringArray->set(4, fifth);
-
-	for(int index = 0; index < myStringArray->getSize(); index++)
+	for(int index = 0; index < notHipsterInts->getSize(); index++)
 	{
-		cout << "The contents at " << index << " are: " << myStringArray->get(index) << endl;
+		notHipsterInts->set(index, (23 * index));
+		cout << "notHipsterInts at index " << index << " contains " << notHipsterInts->get(index) << endl;
 	}
+
+	arrayTimer.stopTimer();
+	arrayTimer.displayTimerInformation();
 }
