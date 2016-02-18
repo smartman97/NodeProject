@@ -18,7 +18,7 @@
 #include "../Model/CTECArray.cpp"
 
 #include "../Model/Timer.h"
-#include "../Model/Timer.cpp"
+
 
 #include <iostream>
 #include <string>

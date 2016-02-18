@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>330</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>node.controller
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>360</x>
+      <y>30</y>
+      <w>800</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>node.model
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>270</y>
+      <w>450</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Timer
+--
+- executionTime : clock_t
+--
++ Timer() : constructor
++ ~Timer() : virtual
++ startTimer() : void
++ stopTimer() : void
++ resetTimer() : void
++ displayTimerInformation() : void
++ getExecutionTimeInMicroseconds : long</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>60</y>
+      <w>310</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>NodeRunner
+--
++ main() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>190</y>
+      <w>310</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>NodeController
+--
+- notHipsterInts : CTECArray&lt;int&gt;*
+- arrayTimer : Timer
+--
++ NodeController() : constructor
++ ~NodeController() : virtual
++ start() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>270</y>
+      <w>320</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>CTECArray temple&lt;class Type&gt;
+--
+- size : int
+- head : ArrayNode&lt;Type&gt;
+--
++ CTECArray(int size) : constructor
++ ~CTECArray() : virtual
++ getSize() : int
++ get(int position) : Type
++ set(int position, const Type&amp; value) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>60</y>
+      <w>450</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>ArrayNode : public Node&lt;Type&gt;
+--
+- next : ArrayNode*
+--
++ ArrayNode() : constructor
++ ArrayNode(const Type&amp; value) : constructor
++ ArrayNode(const Type&amp; value, ArrayNode* next) : constructor
++ ~ArrayNode() : virtual
++ getNext() : ArrayNode*
++ setNext(ArrayNode* next) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>60</y>
+      <w>320</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Node template&lt;class Type&gt;
+--
+- value : Type
+- pointers : Node*
+--
++ Node() : constructor
++ Node(const Type&amp; value) : constructor
++ ~Node() : virtual
++ getValue() : Type
++ setValue(const Type&amp; value) : void
++ getPointers() : Node*</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
