@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.1.1">
+<diagram program="umlet" version="14.1.0">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
-      <y>20</y>
+      <y>0</y>
       <w>330</w>
       <h>320</h>
     </coordinates>
@@ -18,9 +18,9 @@ bg=green</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>360</x>
-      <y>20</y>
+      <y>0</y>
       <w>800</w>
-      <h>690</h>
+      <h>720</h>
     </coordinates>
     <panel_attributes>node.model
 --
@@ -31,7 +31,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>700</x>
-      <y>260</y>
+      <y>240</y>
       <w>450</w>
       <h>170</h>
     </coordinates>
@@ -52,7 +52,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>10</x>
-      <y>50</y>
+      <y>30</y>
       <w>310</w>
       <h>120</h>
     </coordinates>
@@ -65,7 +65,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>10</x>
-      <y>180</y>
+      <y>160</y>
       <w>310</w>
       <h>150</h>
     </coordinates>
@@ -83,11 +83,11 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>260</y>
+      <y>240</y>
       <w>320</w>
       <h>170</h>
     </coordinates>
-    <panel_attributes>CTECArray temple&lt;class Type&gt;
+    <panel_attributes>CTECArray template&lt;class Type&gt;
 --
 - size : int
 - head : ArrayNode&lt;Type&gt;
@@ -103,7 +103,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>700</x>
-      <y>50</y>
+      <y>30</y>
       <w>450</w>
       <h>200</h>
     </coordinates>
@@ -123,7 +123,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>50</y>
+      <y>30</y>
       <w>320</w>
       <h>200</h>
     </coordinates>
@@ -144,11 +144,11 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>440</y>
-      <w>320</w>
-      <h>260</h>
+      <y>420</y>
+      <w>350</w>
+      <h>290</h>
     </coordinates>
-    <panel_attributes>CTECList
+    <panel_attributes>CTECList template&lt;class Type&gt;
 --
 - size : int
 - head : ArrayNode&lt;Type&gt;
@@ -160,31 +160,31 @@ bg=blue</panel_attributes>
 + getFront() : Type
 + getEnd() : Type
 + getIndex(int index) : Type
-+ set(int position, const Type&amp; value) : void
-+ addAtEnd() : void
-+ addAtFront() : void
-+ addAtIndex() : void
++ set(int index, const Type&amp; value) : void
++ addAtEnd(const Type&amp; value) : void
++ addAtFront(const Type&amp; value) : void
++ addAtIndex(int index, const Type&amp; value) : void
 + removeFront() : Type
 + removeEnd() : Type
-+ removeIndex() : Type</panel_attributes>
++ removeIndex(int index) : Type</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
-      <y>210</y>
-      <w>400</w>
+      <x>710</x>
+      <y>190</y>
+      <w>370</w>
       <h>350</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;330.0;380.0;330.0;380.0;10.0</additional_attributes>
+    <additional_attributes>10.0;330.0;350.0;330.0;350.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>650</x>
-      <y>200</y>
+      <y>180</y>
       <w>160</w>
       <h>30</h>
     </coordinates>
@@ -195,7 +195,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>620</x>
-      <y>220</y>
+      <y>200</y>
       <w>130</w>
       <h>100</h>
     </coordinates>

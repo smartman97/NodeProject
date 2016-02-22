@@ -7,14 +7,21 @@
 
 #include "CTECList.h"
 
-CTECList::CTECList()
+template<class Type>
+CTECList<Type>::CTECList()
 {
-	// TODO Auto-generated constructor stub
 
 }
 
-CTECList::~CTECList()
+template<class Type>
+CTECList<Type>::~CTECList()
 {
-	// TODO Auto-generated destructor stub
+
+}
+
+template<class Type>
+int CTECArray<Type>::getSize()
+{
+	return this->size;
 }
 
