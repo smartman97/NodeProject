@@ -5,7 +5,7 @@
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
-      <y>30</y>
+      <y>20</y>
       <w>330</w>
       <h>320</h>
     </coordinates>
@@ -18,9 +18,9 @@ bg=green</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>360</x>
-      <y>30</y>
+      <y>20</y>
       <w>800</w>
-      <h>420</h>
+      <h>690</h>
     </coordinates>
     <panel_attributes>node.model
 --
@@ -31,7 +31,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>700</x>
-      <y>270</y>
+      <y>260</y>
       <w>450</w>
       <h>170</h>
     </coordinates>
@@ -52,7 +52,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>10</x>
-      <y>60</y>
+      <y>50</y>
       <w>310</w>
       <h>120</h>
     </coordinates>
@@ -65,7 +65,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>10</x>
-      <y>190</y>
+      <y>180</y>
       <w>310</w>
       <h>150</h>
     </coordinates>
@@ -83,7 +83,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>270</y>
+      <y>260</y>
       <w>320</w>
       <h>170</h>
     </coordinates>
@@ -103,7 +103,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>700</x>
-      <y>60</y>
+      <y>50</y>
       <w>450</w>
       <h>200</h>
     </coordinates>
@@ -123,7 +123,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>60</y>
+      <y>50</y>
       <w>320</w>
       <h>200</h>
     </coordinates>
@@ -139,5 +139,67 @@ bg=blue</panel_attributes>
 + setValue(const Type&amp; value) : void
 + getPointers() : Node*</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>440</y>
+      <w>320</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>CTECList
+--
+- size : int
+- head : ArrayNode&lt;Type&gt;
+- end : ArrayNode&lt;Type&gt;
+--
++ CTECList(int size) : constructor
++ ~CTECList() : destructor
++ getSize() : int
++ getFront() : Type
++ getEnd() : Type
++ getIndex(int index) : Type
++ set(int position, const Type&amp; value) : void
++ addAtEnd() : void
++ addAtFront() : void
++ addAtIndex() : void
++ removeFront() : Type
++ removeEnd() : Type
++ removeIndex() : Type</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>210</y>
+      <w>400</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;330.0;380.0;330.0;380.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>200</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>220</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;110.0;10.0</additional_attributes>
   </element>
 </diagram>

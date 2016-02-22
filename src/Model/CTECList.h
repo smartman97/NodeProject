@@ -10,6 +10,8 @@
 
 class CTECList
 {
+private:
+
 public:
 	CTECList();
 	virtual ~CTECList();
