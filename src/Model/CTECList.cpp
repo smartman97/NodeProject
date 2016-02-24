@@ -74,7 +74,7 @@ Type CTECList<Type>::removeFront()
 {
 	//Create a pointer to what is after head, Delete what head is pointing to, Set head to the new head.
 	ArrayNode<Type>* newHead = new ArrayNode<Type>();
-	Type& thing = new Type;
+	Type thing;
 	newHead = head->getNext();
 	delete this->head;
 	this->head = newHead;
@@ -85,6 +85,10 @@ template<class Type>
 Type CTECList<Type>::removeEnd()
 {
 	//Can loop over size, or loop until ->getNext() = nullptr
+	//using end pointer?
+	ArrayNode<Type>* newEnd = new ArrayNode<Type>();
+	Type thing;
+
 }
 
 template<class Type>
