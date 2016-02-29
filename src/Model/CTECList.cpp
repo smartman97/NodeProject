@@ -104,7 +104,9 @@ Type CTECList<Type>::removeEnd()
 	if(current->getNext() == nullptr)
 	{
 		toDelete = current;
+		thing = toDelete->getValue();
 		delete toDelete;
+		end = nullptr;
 	}
 	else
 	{
@@ -117,6 +119,7 @@ Type CTECList<Type>::removeEnd()
 		thing = toDelete->getValue();
 		delete toDelete;
 		previous->next() = nullptr;
+		end = previous;
 	}
 
 	this->calculateSize();
