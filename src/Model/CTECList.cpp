@@ -24,31 +24,54 @@ CTECList<Type>::~CTECList()
 template<class Type>
 int CTECList<Type>::getSize()
 {
+	this->calculateSize();
 	return this->size;
 }
 
 template<class Type>
 Type CTECList<Type>::getFront()
 {
-	return nullptr;
+	return head->getValue();
 }
 
 template<class Type>
 Type CTECList<Type>::getEnd()
 {
-	return nullptr;
+	return end->getValue();
 }
 
 template<class Type>
 Type CTECList<Type>::getAtIndex(int index)
 {
-	return nullptr;
+	assert(index < size && index >= 0);
+	ArrayNode<Type>* current = head;
+
+	for(int i = 0; i < index; i++)
+	{
+		current = current->getNext();
+	}
+
+	return current->getValue();
 }
 
 template<class Type>
 void CTECList<Type>::set(int index, const Type& value)
 {
+	//Bound check for size and negative
+		assert(index < size && index >= 0);
 
+		ArrayNode<Type> * current = head;
+		for (int spot = 0; spot <= index; spot++)
+		{
+			if (spot != index)
+			{
+				current = current->getNext();
+			}
+			else
+			{
+				return current->setValue(value);
+			}
+		}
 }
 
 template<class Type>
