@@ -95,13 +95,29 @@ Type CTECList<Type>::removeEnd()
 	//Delete node
 	//return
 
-	ArrayNode<Type>* newEnd;
+
 	ArrayNode<Type>* previous;
 	ArrayNode<Type>* toDelete;
 	ArrayNode<Type>* current = head;
 	Type thing;
 
-
+	if(current->getNext() == nullptr)
+	{
+		toDelete = current;
+		delete toDelete;
+	}
+	else
+	{
+		while(current->getNext() != nullptr)
+		{
+			previous = current;
+			current = current->getNext();
+		}
+		toDelete = current;
+		thing = toDelete->getValue();
+		delete toDelete;
+		previous->next() = nullptr;
+	}
 
 	this->calculateSize();
 	return thing;
