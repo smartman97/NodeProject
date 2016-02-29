@@ -75,57 +75,41 @@ Type CTECList<Type>::removeFront()
 	//Create a pointer to what is after head, Delete what head is pointing to, Set head to the new head.
 	ArrayNode<Type>* newHead = new ArrayNode<Type>();
 	Type thing;
-	newHead = head->getNext();
+	newHead = this->head->getNext();
+	thing = this->head->getValue();
 	delete this->head;
 	this->head = newHead;
+
+	size--;
+
+	this->calculateSize();
 	return thing;
 }
 
 template<class Type>
 Type CTECList<Type>::removeEnd()
 {
-	//Can loop over size, or loop until ->getNext() = nullptr
-	//using end pointer?
-	ArrayNode<Type>* newEnd = new ArrayNode<Type>();
+	//make node and point to head
+	//Can loop over size(for), or loop until ->getNext() = nullptr(while)
+	//Make temp and temp ptr, assign value, set current
+	//Delete node
+	//return
+
+	ArrayNode<Type>* newEnd;
+	ArrayNode<Type>* previous;
+	ArrayNode<Type>* toDelete;
+	ArrayNode<Type>* current = head;
 	Type thing;
 
+
+
+	this->calculateSize();
+	return thing;
 }
 
 template<class Type>
 Type CTECList<Type>::removeAtIndex(int index)
 {
-	ArrayNode<Type>* previous;
-	ArrayNode<Type>* toDelete;
-	ArrayNode<Type>* newNext;
-	ArrayNode<Type>* current = head;
-	Type thing;
-
-	assert(index < 0 || index > size);
-
-	if(index == 0)
-	{
-		removeFront();
-	}
-
-	for(int i = 0; i < index + 1; i++)
-	{
-		if(i == index - 1)
-		{
-			previous = current;
-		}
-
-		if(i == index)
-		{
-			toDelete = current;
-			thing = toDelete->getValue();
-			newNext = current->getNext();
-			delete toDelete;
-			previous->setNext(newNext);
-		}
-		current = current->next();
-	}
-
-	return thing;
 	//Check not negative, not greater than size. Using assert
 	//node pointers for previous and for ToDelete and new next
 	//Find previous next to index, use a for loop(index - 1), loop should have 3 if's
@@ -133,4 +117,73 @@ Type CTECList<Type>::removeAtIndex(int index)
 	//return what was in ToDelete (Type thing = ToDelete      return thing
 	//Delete ToDelete
 	//set previous to next
+	ArrayNode<Type>* previous;
+	ArrayNode<Type>* toDelete;
+	ArrayNode<Type>* newNext;
+	ArrayNode<Type>* current = head;
+	Type thing;
+
+	assert(this->size > 0);
+	assert(index > 0 || index <= size);
+
+	if (index == 0)
+	{
+		thing = removeFront();
+	}
+	else if (index == size - 1)
+	{
+		thing = removeEnd();
+	}
+	else
+	{
+
+		for (int i = 0; i < index; i++)
+		{
+			if (i == index - 1)
+			{
+				previous = current;
+			}
+			else if (i == index)
+			{
+				toDelete = current;
+				thing = toDelete->getValue();
+				newNext = current->getNext();
+				delete toDelete;
+				previous->setNext(newNext);
+			}
+			current = current->next();
+		}
+	}
+
+	this->calculateSize();
+	return thing;
+}
+
+/**
+ * Calculates the size of the list by iterating over all of the nodes in the list.
+ */
+template<class Type>
+void CTECList<Type>::calculateSize()
+{
+	assert(size >= 0);
+
+	ArrayNode<Type>* counterPointer = head;
+	int count = 0;
+
+	if (counterPointer == nullptr)
+	{
+		this->size() = 0;
+		return;
+	}
+	else
+	{
+		count++;
+		while(counterPointer->getNext() != nullptr)
+		{
+			counterPointer = counterPointer->getNext();
+			count++;
+		}
+
+		this->size = count;
+	}
 }
