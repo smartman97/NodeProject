@@ -46,7 +46,7 @@ Type CTECList<Type>::getAtIndex(int index)
 	assert(index < size && index >= 0);
 	ArrayNode<Type>* current = head;
 
-	for(int i = 0; i < index; i++)
+	for(int i = 0; i < index - 1; i++)
 	{
 		current = current->getNext();
 	}
@@ -77,7 +77,20 @@ void CTECList<Type>::set(int index, const Type& value)
 template<class Type>
 void CTECList<Type>::addFront(const Type& value)
 {
+	ArrayNode<Type>* newNode;
+	newNode->setValue(value);
 
+	if(head == nullptr)
+	{
+		newNode->setNext() = nullptr;
+		head = newNode;
+		end = newNode;
+	}
+	else
+	{
+		newNode->setNext(head);
+		head = newNode;
+	}
 }
 
 template<class Type>
@@ -118,6 +131,7 @@ Type CTECList<Type>::removeEnd()
 	//Delete node
 	//return
 
+	assert(size > 0);
 
 	ArrayNode<Type>* previous;
 	ArrayNode<Type>* toDelete;
@@ -141,7 +155,7 @@ Type CTECList<Type>::removeEnd()
 		toDelete = current;
 		thing = toDelete->getValue();
 		delete toDelete;
-		previous->next() = nullptr;
+		previous->setNext() = nullptr;
 		end = previous;
 	}
 
