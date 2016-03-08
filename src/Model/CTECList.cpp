@@ -105,7 +105,23 @@ void CTECList<Type>::addFront(const Type& value)
 template<class Type>
 void CTECList<Type>::addEnd(const Type& value)
 {
+	ArrayNode<Type>* newNode;
+	newNode->setValue(value);
 
+	ArrayNode<Type>* current = head;
+
+	if(current->getNext() == nullptr)
+	{
+		current->setNext(newNode);
+	}
+	else
+	{
+		while(current->getNext() != nullptr)
+		{
+			current = current->getNext();
+		}
+		current->setNext(newNode);
+	}
 }
 
 //Adds at a given index
