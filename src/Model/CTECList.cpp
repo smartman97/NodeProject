@@ -7,6 +7,7 @@
 
 #include "CTECList.h"
 
+//Constructor
 template<class Type>
 CTECList<Type>::CTECList()
 {
@@ -15,12 +16,14 @@ CTECList<Type>::CTECList()
 	this->end = nullptr;
 }
 
+//Destructor
 template<class Type>
 CTECList<Type>::~CTECList()
 {
 
 }
 
+//Returns the size of the list
 template<class Type>
 int CTECList<Type>::getSize()
 {
@@ -28,18 +31,21 @@ int CTECList<Type>::getSize()
 	return this->size;
 }
 
+//Returns front of the list
 template<class Type>
 Type CTECList<Type>::getFront()
 {
 	return head->getValue();
 }
 
+//Returns the end of the list
 template<class Type>
 Type CTECList<Type>::getEnd()
 {
 	return end->getValue();
 }
 
+//Returns at the given index
 template<class Type>
 Type CTECList<Type>::getAtIndex(int index)
 {
@@ -54,6 +60,7 @@ Type CTECList<Type>::getAtIndex(int index)
 	return current->getValue();
 }
 
+//Sets a value at a given index
 template<class Type>
 void CTECList<Type>::set(int index, const Type& value)
 {
@@ -74,6 +81,7 @@ void CTECList<Type>::set(int index, const Type& value)
 		}
 }
 
+//Adds to the front of the list
 template<class Type>
 void CTECList<Type>::addFront(const Type& value)
 {
@@ -93,18 +101,21 @@ void CTECList<Type>::addFront(const Type& value)
 	}
 }
 
+//Adds to the end of the list
 template<class Type>
 void CTECList<Type>::addEnd(const Type& value)
 {
 
 }
 
+//Adds at a given index
 template<class Type>
 void CTECList<Type>::addAtIndex(int index, const Type& value)
 {
 
 }
 
+//Removes the front of the list
 template<class Type>
 Type CTECList<Type>::removeFront()
 {
@@ -122,6 +133,7 @@ Type CTECList<Type>::removeFront()
 	return thing;
 }
 
+//Removes the end of the list
 template<class Type>
 Type CTECList<Type>::removeEnd()
 {
@@ -163,6 +175,7 @@ Type CTECList<Type>::removeEnd()
 	return thing;
 }
 
+//Removes at given index
 template<class Type>
 Type CTECList<Type>::removeAtIndex(int index)
 {
