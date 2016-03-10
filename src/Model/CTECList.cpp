@@ -20,7 +20,28 @@ CTECList<Type>::CTECList()
 template<class Type>
 CTECList<Type>::~CTECList()
 {
+	/*
+	 * Start at head
+	 * iterate over nodes
+	 * update position then delete
+	 * delete final
+	 * reset size, head, end to default
+	 */
+	ArrayNode<Type> current = head;
 
+	while(current->getNext() != nullptr)
+	{
+		ArrayNode<Type> temp = current;
+
+		current = current->getNext();
+		head= current;
+		delete temp;
+	}
+
+	delete head;
+	head = nullptr;
+	end= nullptr;
+	size = 0;
 }
 
 //Returns the size of the list
