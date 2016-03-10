@@ -78,6 +78,7 @@ Type CTECArray<Type>::get(int position)
 			return current->getValue();
 		}
 	}
+    return 0;
 }
 
 template<class Type>

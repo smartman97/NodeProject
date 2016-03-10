@@ -27,11 +27,11 @@ CTECList<Type>::~CTECList()
 	 * delete final
 	 * reset size, head, end to default
 	 */
-	ArrayNode<Type> current = head;
+	ArrayNode<Type>* current = head;
 
 	while(current->getNext() != nullptr)
 	{
-		ArrayNode<Type> temp = current;
+		ArrayNode<Type>* temp = current;
 
 		current = current->getNext();
 		head= current;
@@ -106,12 +106,11 @@ void CTECList<Type>::set(int index, const Type& value)
 template<class Type>
 void CTECList<Type>::addFront(const Type& value)
 {
-	ArrayNode<Type>* newNode;
-	newNode->setValue(value);
-
+	ArrayNode<Type>* newNode= new ArrayNode<Type>(value);
+	
 	if(head == nullptr)
 	{
-		newNode->setNext() = nullptr;
+		newNode->setNext(nullptr);
 		head = newNode;
 		end = newNode;
 	}
@@ -126,9 +125,7 @@ void CTECList<Type>::addFront(const Type& value)
 template<class Type>
 void CTECList<Type>::addEnd(const Type& value)
 {
-	ArrayNode<Type>* newNode;
-	newNode->setValue(value);
-
+	ArrayNode<Type>* newNode= new ArrayNode<Type>(value);
 	ArrayNode<Type>* current = head;
 
 	if(current->getNext() == nullptr)
