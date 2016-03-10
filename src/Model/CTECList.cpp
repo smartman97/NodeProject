@@ -70,7 +70,7 @@ Type CTECList<Type>::getEnd()
 template<class Type>
 Type CTECList<Type>::getAtIndex(int index)
 {
-	assert(index < size && index >= 0);
+	assert(index > size || index < 0);
 	ArrayNode<Type>* current = head;
 
 	for(int i = 0; i < index - 1; i++)
@@ -119,6 +119,7 @@ void CTECList<Type>::addFront(const Type& value)
 		newNode->setNext(head);
 		head = newNode;
 	}
+	calculateSize();
 }
 
 //Adds to the end of the list
@@ -131,6 +132,8 @@ void CTECList<Type>::addEnd(const Type& value)
 	if(current->getNext() == nullptr)
 	{
 		current->setNext(newNode);
+		newNode->setNext(nullptr);
+		end = newNode;
 	}
 	else
 	{
@@ -139,14 +142,17 @@ void CTECList<Type>::addEnd(const Type& value)
 			current = current->getNext();
 		}
 		current->setNext(newNode);
+		newNode->setNext(nullptr);
+		end = newNode;
 	}
+	calculateSize();
 }
 
 //Adds at a given index
 template<class Type>
 void CTECList<Type>::addAtIndex(int index, const Type& value)
 {
-
+	calculateSize();
 }
 
 //Removes the front of the list

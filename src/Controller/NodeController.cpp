@@ -25,6 +25,9 @@ void NodeController :: testLists()
 
 	cout << "Front should be 3 and is : " << numbers->getFront() << endl;
 	cout << "End should be 8 and is : " << numbers->getEnd() << endl;
+
+	cout << "Index at 0 should be 3 and is : " << numbers->getAtIndex(0) << endl;
+	cout << "Index at 1 should be 8 and is : " << numbers->getAtIndex(1) << endl;
 }
 
 void NodeController :: start()
