@@ -156,11 +156,15 @@ void CTECList<Type>::addAtIndex(int index, const Type& value)
 	ArrayNode<Type>* current = head;
 	ArrayNode<Type>* previous = current;
 
-	if (current->getNext() == nullptr)
+	assert(index <= size && index >= 0);
+
+	if (index == 0)
 	{
-		current->setNext(newNode);
-		newNode->setNext(nullptr);
-		end = newNode;
+		addFront(value);
+	}
+	else if(index == size)
+	{
+		addEnd(value);
 	}
 	else
 	{
