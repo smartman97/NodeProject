@@ -63,7 +63,7 @@ template<class Type>
 Type CTECArray<Type>::get(int position)
 {
 	//Bounds check for size and negative
-	assert(position < size && position >= 0);
+	assert(position <= size && position >= 0);
 
 	//Inclusive because I am inside the bounds guaranteed!
 	ArrayNode<Type> * current = head;
@@ -85,7 +85,7 @@ template<class Type>
 void CTECArray<Type>::set(int position, const Type& value)
 {
 	//Bound check for size and negative
-	assert(position < size && position >= 0);
+	assert(position <= size && position >= 0);
 
 	ArrayNode<Type> * current = head;
 	for (int spot = 0; spot <= position; spot++)
@@ -108,7 +108,7 @@ void CTECArray<Type>::set(int position, const Type& value)
 	 * loop  if match return index, else next
 	 * return index
 	 */
-	template<class Type>
+template<class Type>
 int CTECArray<Type>::indexOf(Type searchValue)
 {
 	assert(this->size > 0);
@@ -120,6 +120,34 @@ int CTECArray<Type>::indexOf(Type searchValue)
 	for(int index = 0; index < this->size; index++)
 	{
 		if(current->getValue() == searchValue)
+		{
+			return index;
+		}
+		else
+		{
+			current = current->getNext();
+		}
+	}
+	return indexNotFound;
+}
+
+template<class Type>
+int CTECArray<Type>::nextIndexOf(int startingIndex, Type searchValue)
+{
+	assert(this->size > 0);
+	assert(startingIndex >= 0 && startingIndex < this->size);
+
+	int indexNotFound = -1;
+
+	ArrayNode<Type>* current = head;
+	for(int index = 0; index < startingIndex; index++)
+	{
+		current = current->getNext();
+	}
+
+	for(int index = startingIndex; index < this->size; index++)
+	{
+		if(current->getValue == searchValue)
 		{
 			return index;
 		}

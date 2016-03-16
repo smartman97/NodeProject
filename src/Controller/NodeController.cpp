@@ -25,13 +25,33 @@ void NodeController :: testLists()
 
 	cout << "Front should be 3 and is : " << numbers->getFront() << endl;
 	cout << "End should be 8 and is : " << numbers->getEnd() << endl;
-	cout << numbers->getSize() << endl;
+	cout << "The size should now be 2 and is: " << numbers->getSize() << endl;
 
 	numbers->addAtIndex(2, 10);
 
 	cout << "End should now be 10 and is : " << numbers->getEnd() << endl;
 	cout << "Returning at index 1, it should be 8 and is: "<< numbers->getAtIndex(1) << endl;
 
+	numbers->set(1,44);
+
+	cout << "Changing index 1, it should be 44 and is: "<< numbers->getAtIndex(1) << endl;
+
+	numbers->addFront(65);
+	numbers->addFront(11);
+	numbers->addFront(21);
+
+	cout << "The size should now be 6 and is: " << numbers->getSize() << endl;
+
+	numbers->removeEnd();
+	numbers->removeFront();
+
+	cout << "End should now be 44 and is : " << numbers->getEnd() << endl;
+	cout << "Front should be 11 and is : " << numbers->getFront() << endl;
+	cout << "The size should now be 4 and is: " << numbers->getSize() << endl;
+
+	numbers->removeAtIndex(2);
+
+	cout << "The size should now be 3 and is: " << numbers->getSize() << endl;
 }
 
 void NodeController :: start()

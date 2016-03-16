@@ -238,7 +238,7 @@ Type CTECList<Type>::removeEnd()
 		toDelete = current;
 		thing = toDelete->getValue();
 		delete toDelete;
-		previous->setNext() = nullptr;
+		previous->setNext(nullptr);
 		end = previous;
 	}
 
@@ -264,7 +264,7 @@ Type CTECList<Type>::removeAtIndex(int index)
 	Type thing;
 
 	assert(this->size > 0);
-	assert(index > 0 || index <= size);
+	assert(index >= 0 && index <= size);
 
 	if (index == 0)
 	{
@@ -276,7 +276,6 @@ Type CTECList<Type>::removeAtIndex(int index)
 	}
 	else
 	{
-
 		for (int i = 0; i < index; i++)
 		{
 			if (i == index - 1)
@@ -291,7 +290,7 @@ Type CTECList<Type>::removeAtIndex(int index)
 				delete toDelete;
 				previous->setNext(newNext);
 			}
-			current = current->next();
+			current = current->getNext();
 		}
 	}
 
