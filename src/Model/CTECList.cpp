@@ -75,7 +75,7 @@ Type CTECList<Type>::getAtIndex(int index)
 
 	for (int i = 0; i <= index; i++)
 	{
-		if(i != index)
+		if (i != index)
 		{
 			current = current->getNext();
 		}
@@ -168,13 +168,13 @@ void CTECList<Type>::addAtIndex(int index, const Type& value)
 	{
 		addFront(value);
 	}
-	else if(index == size)
+	else if (index == size)
 	{
 		addEnd(value);
 	}
 	else
 	{
-		for(int i = 0; i < index; i++)
+		for (int i = 0; i < index; i++)
 		{
 			previous = current;
 			current = current->getNext();
@@ -276,7 +276,7 @@ Type CTECList<Type>::removeAtIndex(int index)
 	}
 	else
 	{
-		for (int i = 0; i < index; i++)
+		for (int i = 0; i <= index; i++)
 		{
 			if (i == index - 1)
 			{
