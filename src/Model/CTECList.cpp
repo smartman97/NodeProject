@@ -70,14 +70,20 @@ Type CTECList<Type>::getEnd()
 template<class Type>
 Type CTECList<Type>::getAtIndex(int index)
 {
-	assert(index > size || index < 0);
+	assert(index < size && index >= 0);
 	ArrayNode<Type>* current = head;
 
-	for (int i = 0; i < index - 1; i++)
+	for (int i = 0; i <= index; i++)
 	{
-		current = current->getNext();
+		if(i != index)
+		{
+			current = current->getNext();
+		}
+		else
+		{
+			return current->getValue();
+		}
 	}
-
 	return current->getValue();
 }
 
@@ -320,4 +326,11 @@ void CTECList<Type>::calculateSize()
 
 		this->size = count;
 	}
+	/*
+	 * searching
+	 * assert size > 0
+	 * declare return variable assign -1 to it
+	 * loop  if match return index, else next
+	 * return index
+	 */
 }

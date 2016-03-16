@@ -27,9 +27,10 @@ void NodeController :: testLists()
 	cout << "End should be 8 and is : " << numbers->getEnd() << endl;
 	cout << numbers->getSize() << endl;
 
-	numbers->addAtIndex(1, 10);
+	numbers->addAtIndex(2, 10);
 
 	cout << "End should now be 10 and is : " << numbers->getEnd() << endl;
+	cout << "Returning at index 1, it should be 8 and is: "<< numbers->getAtIndex(1) << endl;
 
 }
 
