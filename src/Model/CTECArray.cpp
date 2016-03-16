@@ -78,7 +78,7 @@ Type CTECArray<Type>::get(int position)
 			return current->getValue();
 		}
 	}
-    return 0;
+	return 0;
 }
 
 template<class Type>
@@ -100,3 +100,34 @@ void CTECArray<Type>::set(int position, const Type& value)
 		}
 	}
 }
+
+	/*
+	 * searching
+	 * assert size > 0
+	 * declare return variable assign -1 to it
+	 * loop  if match return index, else next
+	 * return index
+	 */
+	template<class Type>
+int CTECArray<Type>::indexOf(Type searchValue)
+{
+	assert(this->size > 0);
+
+	int indexNotFound = -1;
+
+	ArrayNode<Type>* current = head;
+
+	for(int index = 0; index < this->size; ix++)
+	{
+		if(current->getValue() == searchValue)
+		{
+			return index;
+		}
+		else
+		{
+			current = current->getNext();
+		}
+	}
+	return indexNotFound;
+}
+

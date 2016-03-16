@@ -326,11 +326,4 @@ void CTECList<Type>::calculateSize()
 
 		this->size = count;
 	}
-	/*
-	 * searching
-	 * assert size > 0
-	 * declare return variable assign -1 to it
-	 * loop  if match return index, else next
-	 * return index
-	 */
 }
