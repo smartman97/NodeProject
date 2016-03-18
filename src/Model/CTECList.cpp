@@ -326,3 +326,22 @@ void CTECList<Type>::calculateSize()
 		this->size = count;
 	}
 }
+
+template<class Type>
+int CTECList<Type>::indexOf(Type searchValue)
+{
+	assert(this->size > 0);
+	int index = 0;
+	ArrayNode<Type>* searchPointer = head;
+
+	for(searchPointer = head; searchPointer != nullptr; searchPointer = searchPointer->getNext())
+	{
+		if(searchValue == searchPointer->getValue())
+		{
+			return index;
+		}
+		index++;
+	}
+	index = -1;
+	return index;
+}

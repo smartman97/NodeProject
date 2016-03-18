@@ -32,7 +32,7 @@ public:
 	Type removeFront();
 	Type removeEnd();
 	Type removeAtIndex(int index);
-
+	int indexOf(Type searchValue);
 };
 
 #endif /* MODEL_CTECLIST_H_ */
