@@ -70,3 +70,9 @@ void NodeController :: start()
 //	arrayTimer.stopTimer();
 //	arrayTimer.displayTimerInformation();
 }
+
+void NodeController :: checkSorts()
+{
+	CTECArray<int> numbersInArray(5);
+	CTECList<int> numbersInList;
+}

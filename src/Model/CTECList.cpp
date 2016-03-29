@@ -345,3 +345,42 @@ int CTECList<Type>::indexOf(Type searchValue)
 	index = -1;
 	return index;
 }
+
+template<class Type>
+void CTECList<Type>::swap(int indexOne, int indexTwo)
+{
+	assert(indexOne< size && indexTwo < size);
+	ArrayNode<Type>* first = getAtIndex(indexOne);
+	ArrayNode<Type>* second = getAtIndex(indexTwo);
+	ArrayNode<Type>* temp = new ArrayNode<Type>();
+
+	temp->setValue(first->getValue());
+	first->setValue(second->getValue());
+	second->setValue(temp->getValue());
+
+	delete temp;
+}
+
+template<class Type>
+void CTECList<Type>::selectionSort()
+{
+	int innerLoop, outerLoop;
+
+	for(outerLoop = 0; outerLoop < this->size() - 1; outerLoop++)
+	{
+		int selectedMin = outerLoop;
+
+		for(innerLoop = outerLoop + 1; innerLoop < size; innerLoop++)
+		{
+			if(getAtIndex(innerLoop) < getAtIndex(selectedMin))
+			{
+				selectedMin = innerLoop;
+			}
+		}
+		if(selectedMin != outerLoop)
+		{
+			swap(outerLoop, selectedMin);
+		}
+	}
+}
+
