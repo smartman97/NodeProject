@@ -75,4 +75,16 @@ void NodeController :: checkSorts()
 {
 	CTECArray<int> numbersInArray(5);
 	CTECList<int> numbersInList;
+
+	for(int spot = 0; spot < 5000; spot++)
+	{
+		int randomValue = rand();
+		numbersInArray.set(spot, randomValue);
+		numbersInList.addEnd(randomValue);
+	}
+	arrayTimer.startTimer();
+	numbersInList.selectionSort();
+	arrayTimer.stopTimer();
+	arrayTimer.displayTimerInformation();
+
 }
