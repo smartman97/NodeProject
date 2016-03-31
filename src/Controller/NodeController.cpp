@@ -56,19 +56,7 @@ void NodeController::testLists()
 
 void NodeController::start()
 {
-
-	testLists();
-
-//	arrayTimer.startTimer();
-//
-//	for(int index = 0; index < notHipsterInts->getSize(); index++)
-//	{
-//		notHipsterInts->set(index, (23 * index));
-//		cout << "notHipsterInts at index " << index << " contains " << notHipsterInts->get(index) << endl;
-//	}
-//
-//	arrayTimer.stopTimer();
-//	arrayTimer.displayTimerInformation();
+	doMergeSort();
 }
 
 void NodeController::checkSorts()
@@ -114,6 +102,8 @@ void NodeController::doMergeSort()
 	mergeSort(mergeData, 5000);
 	mergeTimer.stopTimer();
 	mergeTimer.displayTimerInformation();
+
+	delete [] mergeData;
 }
 
 void NodeController::mergeSort(int data[], int size)
@@ -123,7 +113,7 @@ void NodeController::mergeSort(int data[], int size)
 
 	if(size > 1)
 	{
-		sizeOne = sizeOne / 2;
+		sizeOne = size / 2;
 		sizeTwo = size - sizeOne;
 
 		mergeSort(data, sizeOne);
