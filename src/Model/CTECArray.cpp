@@ -163,15 +163,9 @@ template<class Type>
 void CTECArray<Type>::swap(int indexOne, int indexTwo)
 {
 	assert(indexOne< size && indexTwo < size);
-	ArrayNode<Type>* first = get(indexOne);
-	ArrayNode<Type>* second = get(indexTwo);
-	ArrayNode<Type>* temp = new ArrayNode<Type>();
-
-	temp->setValue(first->getValue());
-	first->setValue(second->getValue());
-	second->setValue(temp->getValue());
-
-	delete temp;
+	Type temp = get(indexOne);
+	set(indexOne, get(indexTwo));
+	set(indexTwo, temp);
 }
 
 template<class Type>
@@ -179,7 +173,7 @@ void CTECArray<Type>::selectionSort()
 {
 	int innerLoop, outerLoop;
 
-	for(outerLoop = 0; outerLoop < this->size() - 1; outerLoop++)
+	for(outerLoop = 0; outerLoop < this->size - 1; outerLoop++)
 	{
 		int selectedMin = outerLoop;
 

@@ -18,7 +18,7 @@ NodeController::~NodeController()
 
 }
 
-void NodeController :: testLists()
+void NodeController::testLists()
 {
 	numbers->addFront(3);
 	numbers->addEnd(8);
@@ -30,11 +30,11 @@ void NodeController :: testLists()
 	numbers->addAtIndex(2, 10);
 
 	cout << "End should now be 10 and is : " << numbers->getEnd() << endl;
-	cout << "Returning at index 1, it should be 8 and is: "<< numbers->getAtIndex(1) << endl;
+	cout << "Returning at index 1, it should be 8 and is: " << numbers->getAtIndex(1) << endl;
 
-	numbers->set(1,44);
+	numbers->set(1, 44);
 
-	cout << "Changing index 1, it should be 44 and is: "<< numbers->getAtIndex(1) << endl;
+	cout << "Changing index 1, it should be 44 and is: " << numbers->getAtIndex(1) << endl;
 
 	numbers->addFront(65);
 	numbers->addFront(11);
@@ -54,7 +54,7 @@ void NodeController :: testLists()
 	cout << "The size should now be 3 and is: " << numbers->getSize() << endl;
 }
 
-void NodeController :: start()
+void NodeController::start()
 {
 
 	testLists();
@@ -71,20 +71,51 @@ void NodeController :: start()
 //	arrayTimer.displayTimerInformation();
 }
 
-void NodeController :: checkSorts()
+void NodeController::checkSorts()
 {
 	CTECArray<int> numbersInArray(5);
 	CTECList<int> numbersInList;
 
-	for(int spot = 0; spot < 5000; spot++)
+	for (int spot = 0; spot < 5000; spot++)
 	{
 		int randomValue = rand();
 		numbersInArray.set(spot, randomValue);
 		numbersInList.addEnd(randomValue);
 	}
 	arrayTimer.startTimer();
+
 	numbersInList.selectionSort();
+
 	arrayTimer.stopTimer();
 	arrayTimer.displayTimerInformation();
+
+	arrayTimer.resetTimer();
+
+	arrayTimer.startTimer();
+
+	numbersInArray.selectionSort();
+
+	arrayTimer.stopTimer();
+	arrayTimer.displayTimerInformation();
+}
+
+void NodeController::doMergeSort()
+{
+	mergeData = new int[5000];
+	for (int spot = 0; spot < 5000; spot++)
+	{
+		int randomValue = rand();
+		mergeData[spot] = randomValue;
+	}
+	mergeSort(mergeData, 5000);
+}
+
+void NodeController::mergeSort(int dataArray[], int size)
+{
+
+}
+
+void NodeController::merge(int data[], int sizeOne, int sizeTwo)
+{
 
 }
