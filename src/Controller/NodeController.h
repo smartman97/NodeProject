@@ -37,10 +37,18 @@ private:
 	Timer arrayTimer;
 	void testLists();
 	void checkSorts();
+
 	int * mergeData;
 	void doMergeSort();
 	void mergeSort(int data[], int size);
 	void merge(int data[], int sizeOne, int sizeTwo);
+
+	void doBogo();
+
+	void quickSort(int first, int last);
+	int partition(int first, int last);
+	void swap(int first, int last);
+	void doQuick();
 public:
 	NodeController();
 	virtual ~NodeController();
