@@ -11,7 +11,7 @@
 #include "Node.h"
 
 template<class Type>
-class TreeNode : public Node<Type>
+class TreeNode : Node<Type>
 {
 public:
 	TreeNode();
