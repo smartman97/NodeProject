@@ -80,6 +80,19 @@ void CTECBinaryTree<Type>::insert(const Type& value, CTECBinaryTree<Type>* curre
 }
 
 template<class Type>
+Type CTECBinaryTree<Type>::remove(const Type& value)
+{
+	if(!contains(value))
+	{
+		return value;
+	}
+	else
+	{
+
+	}
+}
+
+template<class Type>
 void CTECBinaryTree<Type>::inorderTraversal(TreeNode<Type>* currentNode)
 {
 	if(currentNode != nullptr)
