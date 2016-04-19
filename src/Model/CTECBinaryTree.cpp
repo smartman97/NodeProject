@@ -88,7 +88,20 @@ Type CTECBinaryTree<Type>::remove(const Type& value)
 	}
 	else
 	{
-
+		/*
+		 * Find the node
+		 * Check to see how many child nodes
+		 * 	if 0
+		 * 		delete
+		 * 	else if only left
+		 * 		replace with left
+		 * 		delete old one
+		 * 	(and vise versa)
+		 * 	else both
+		 * 	find lmc/rmc
+		 * 		swap with
+		 * 		do - left only/right only
+		 */
 	}
 }
 
