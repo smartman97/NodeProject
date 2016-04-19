@@ -23,11 +23,12 @@ private:
 	int size;
 	bool balanced;
 	bool contains(Type value, CTECBinaryTree<Type>* parent);
+	void insert(const Type& value, CTECBinaryTree<Type>* currentTree);
 	int calculatedSize(TreeNode<Type>* currentNode);
 public:
 	CTECBinaryTree();
 	virtual ~CTECBinaryTree();
-	bool insert(const Type* value);
+	bool insert(const Type& value);
 	bool contains(Type value);
 	Type remove(const Type& value);
 	int getHeight();

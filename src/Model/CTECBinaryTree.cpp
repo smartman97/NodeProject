@@ -10,11 +10,33 @@
 template<class Type>
 CTECBinaryTree<Type>::CTECBinaryTree()
 {
-
+	root = nullptr;
+	balanced = true;
+	height = 0;
+	size = 0;
 }
 
 template<class Type>
 CTECBinaryTree<Type>::~CTECBinaryTree()
+{
+
+}
+
+template<class Type>
+bool CTECBinaryTree<Type>::insert(const Type& value)
+{
+	if(root == nullptr)
+	{
+		root = new TreeNode(value);
+	}
+	else
+	{
+		return root->insert(value);
+	}
+}
+
+template<class Type>
+void CTECBinaryTree<Type>::insert(const Type& value, CTECBinaryTree<Type>* currentTree)
 {
 
 }
@@ -70,5 +92,57 @@ int CTECBinaryTree<Type>::calculatedSize(TreeNode<Type>* currentNode)
 	}
 }
 
+template<class Type>
+bool CTECBinaryTree<Type>::contains(Type value)
+{
+	/*
+	 * is the value in root? - return true else.
+	 * If the value is not in the root and is less than root - call contains on left child.
+	 * Else  the value is not in the root and is greater than root - call contains on right child
+	 */
 
+	bool isInTree = false;
+
+	if(root->getValue == value)
+	{
+		isInTree = true;
+	}
+	else if(value < root->getValue())
+	{
+		isInTree = contains(value,root->getLeftChild());
+	}
+	else
+	{
+		isInTree = contains(value, root->getRightChild());
+	}
+	return isInTree;
+}
+
+template<class Type>
+bool CTECBinaryTree<Type>::contains(Type value, CTECBinaryTree<Type>* currentTree)
+{
+	/*
+	 * is the value in root? - return true else.
+	 * If the value is not in the root and is less than root - call contains on left child.
+	 * Else  the value is not in the root and is greater than root - call contains on right child
+	 */
+
+	if(currentTree == nullptr)
+	{
+		return false;
+	}
+
+	if(root->getValue == value)
+	{
+		return true;
+	}
+	else if(value < currentTree->getRoot()->getValue())
+	{
+		return contains(value,root->getLeftChild());
+	}
+	else
+	{
+		return contains(value, root->getRightChild());
+	}
+}
 
