@@ -26,8 +26,13 @@ void NodeController::start()
 void NodeController::tryTree()
 {
 	CTECBinaryTree<int> testTree;
+	testTree.insert(5);
+	testTree.insert(7);
+	testTree.insert(3);
 
+	testTree.inorderTraversal(testTree.getRoot());
 
+	cout << "Tree" << endl;
 }
 
 void NodeController::testLists()

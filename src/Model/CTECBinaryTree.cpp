@@ -242,7 +242,7 @@ bool CTECBinaryTree<Type>::contains(Type value)
 	{
 		isInTree = false;
 	}
-	else if(root->getValue == value)
+	else if(root->getValue() == value)
 	{
 		isInTree = true;
 	}
@@ -271,11 +271,11 @@ bool CTECBinaryTree<Type>::contains(Type value, TreeNode<Type>* currentTree)
 		return false;
 	}
 
-	if(root->getValue == value)
+	if(root->getValue() == value)
 	{
 		return true;
 	}
-	else if(value < currentTree->getRoot()->getValue())
+	else if(value < currentTree->getValue())
 	{
 		return contains(value, currentTree->getLeftChild());
 	}
