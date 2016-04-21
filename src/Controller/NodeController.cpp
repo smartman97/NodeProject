@@ -18,6 +18,20 @@ NodeController::~NodeController()
 
 }
 
+void NodeController::start()
+{
+	tryTree();
+}
+
+void NodeController::tryTree()
+{
+	CTECBinaryTree<int> testTree;
+
+
+}
+
+void
+
 void NodeController::testLists()
 {
 	numbers->addFront(3);
@@ -52,11 +66,6 @@ void NodeController::testLists()
 	numbers->removeAtIndex(2);
 
 	cout << "The size should now be 3 and is: " << numbers->getSize() << endl;
-}
-
-void NodeController::start()
-{
-	doQuick();
 }
 
 void NodeController::checkSorts()

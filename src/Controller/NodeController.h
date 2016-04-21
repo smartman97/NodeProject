@@ -20,6 +20,8 @@
 #include "../Model/CTECList.h"
 #include "../Model/CTECList.cpp"
 
+#include "../Model/CTECBinaryTree.h"
+#include "../Model/CTECBinaryTree.cpp"
 
 #include "../Model/Timer.h"
 
@@ -37,18 +39,16 @@ private:
 	Timer arrayTimer;
 	void testLists();
 	void checkSorts();
-
 	int * mergeData;
 	void doMergeSort();
 	void mergeSort(int data[], int size);
 	void merge(int data[], int sizeOne, int sizeTwo);
-
 	void doBogo();
-
 	void quickSort(int first, int last);
 	int partition(int first, int last);
 	void swap(int first, int last);
 	void doQuick();
+	void tryTree();
 public:
 	NodeController();
 	virtual ~NodeController();

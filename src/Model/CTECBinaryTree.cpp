@@ -19,13 +19,22 @@ CTECBinaryTree<Type>::CTECBinaryTree()
 template<class Type>
 CTECBinaryTree<Type>::~CTECBinaryTree()
 {
+	while(root != nullptr)
+	{
+		remove(root);
+	}
+}
 
+template<class Type>
+TreeNode<Type>* CTECBinaryTree<Type>::getRoot()
+{
+	return root;
 }
 
 template<class Type>
 bool CTECBinaryTree<Type>::insert(const Type& value)
 {
-	TreeNode<Type>* insertedNode(value);
+	TreeNode<Type>* insertedNode = new TreeNode<Type>(value);
 	TreeNode<Type>* current;
 	TreeNode<Type>* trailingCurrent;
 
@@ -71,12 +80,6 @@ bool CTECBinaryTree<Type>::insert(const Type& value)
 		}
 		return true;
 	}
-}
-
-template<class Type>
-void CTECBinaryTree<Type>::insert(const Type& value, CTECBinaryTree<Type>* currentTree)
-{
-
 }
 
 template<class Type>
@@ -150,7 +153,7 @@ void CTECBinaryTree<Type>::remove(TreeNode<Type>* nodeToRemove)
 	}
 	else
 	{
-		current = nodeToRemove->getLeftChild()
+		current = nodeToRemove->getLeftChild();
 		trailing = nullptr;
 
 		while(current->getRightChild() != nullptr)
@@ -159,7 +162,7 @@ void CTECBinaryTree<Type>::remove(TreeNode<Type>* nodeToRemove)
 			current = current->getRightChild();
 		}
 
-		nodeToRemove->setValue(current->getValue);
+		nodeToRemove->setValue(current->getValue());
 
 		if(trailing == nullptr)
 		{
