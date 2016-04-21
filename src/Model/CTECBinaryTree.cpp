@@ -80,28 +80,42 @@ void CTECBinaryTree<Type>::insert(const Type& value, CTECBinaryTree<Type>* curre
 }
 
 template<class Type>
-Type CTECBinaryTree<Type>::remove(const Type& value)
+void CTECBinaryTree<Type>::remove(const Type& value)
 {
+	TreeNode<Type>* current = root;
+	TreeNode<Type>* trailing = current;
+
 	if(!contains(value))
 	{
-		return value;
+		return;
 	}
 	else
 	{
-		/*
-		 * Find the node
-		 * Check to see how many child nodes
-		 * 	if 0
-		 * 		delete
-		 * 	else if only left
-		 * 		replace with left
-		 * 		delete old one
-		 * 	(and vise versa)
-		 * 	else both
-		 * 	find lmc/rmc
-		 * 		swap with
-		 * 		do - left only/right only
-		 */
+		while(current != nullptr && current->getValue() != value)
+		{
+			trailing = current;
+			if(current->getValue() > value)
+			{
+				current = current->getLeftChild();
+			}
+			else
+			{
+				current = current->getRightChild();
+			}
+		}
+
+		if(current == root)
+		{
+			remove(root);
+		}
+		else if(trailing->getValue() > value)
+		{
+			remove(trailing->getLeftChild);
+		}
+		else
+		{
+			remove(trailing->getRightChild);
+		}
 	}
 }
 
@@ -208,5 +222,25 @@ bool CTECBinaryTree<Type>::contains(Type value, CTECBinaryTree<Type>* currentTre
 	{
 		return contains(value, root->getRightChild());
 	}
+}
+
+template<class Type>
+TreeNode<Type>* CTECBinaryTree<Type>::getRightMostChild(CTECBinaryTree<Type>* leftSubTree)
+{
+	TreeNode<Type>* rightNode = leftSubTree->getRoot();
+	while(rightNode->getRightChild() != nullptr)
+	{
+		rightNode = rightNode->getRightChild();
+	}
+}
+
+template<class Type>
+TreeNode<Type>* CTECBinaryTree<Type>::getLeftMostChild(CTECBinaryTree<Type>* rightSubTree)
+{
+	TreeNode<Type>* leftNode = rightSubTree->getRoot();
+		while(leftNode->getLeftChild() != nullptr)
+		{
+			leftNode = leftNode->getLeftChild();
+		}
 }
 
