@@ -238,7 +238,11 @@ bool CTECBinaryTree<Type>::contains(Type value)
 
 	bool isInTree = false;
 
-	if(root->getValue == value)
+	if(root == nullptr)
+	{
+		isInTree = false;
+	}
+	else if(root->getValue == value)
 	{
 		isInTree = true;
 	}
@@ -254,7 +258,7 @@ bool CTECBinaryTree<Type>::contains(Type value)
 }
 
 template<class Type>
-bool CTECBinaryTree<Type>::contains(Type value, CTECBinaryTree<Type>* currentTree)
+bool CTECBinaryTree<Type>::contains(Type value, TreeNode<Type>* currentTree)
 {
 	/*
 	 * is the value in root? - return true else.
@@ -273,16 +277,16 @@ bool CTECBinaryTree<Type>::contains(Type value, CTECBinaryTree<Type>* currentTre
 	}
 	else if(value < currentTree->getRoot()->getValue())
 	{
-		return contains(value,root->getLeftChild());
+		return contains(value, currentTree->getLeftChild());
 	}
 	else
 	{
-		return contains(value, root->getRightChild());
+		return contains(value, currentTree->getRightChild());
 	}
 }
 
 template<class Type>
-TreeNode<Type>* CTECBinaryTree<Type>::getRightMostChild(CTECBinaryTree<Type>* leftSubTree)
+TreeNode<Type>* CTECBinaryTree<Type>::getRightMostChild(TreeNode<Type>* leftSubTree)
 {
 	TreeNode<Type>* rightNode = leftSubTree->getRoot();
 	while(rightNode->getRightChild() != nullptr)
@@ -292,7 +296,7 @@ TreeNode<Type>* CTECBinaryTree<Type>::getRightMostChild(CTECBinaryTree<Type>* le
 }
 
 template<class Type>
-TreeNode<Type>* CTECBinaryTree<Type>::getLeftMostChild(CTECBinaryTree<Type>* rightSubTree)
+TreeNode<Type>* CTECBinaryTree<Type>::getLeftMostChild(TreeNode<Type>* rightSubTree)
 {
 	TreeNode<Type>* leftNode = rightSubTree->getRoot();
 		while(leftNode->getLeftChild() != nullptr)

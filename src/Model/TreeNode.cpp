@@ -38,19 +38,19 @@ TreeNode<Type>::TreeNode(const Type& value, TreeNode<Type>* parent) : Node<Type>
 template<class Type>
 TreeNode<Type>* TreeNode<Type>::getLeftChild()
 {
-	return this->leftChild();
+	return this->leftChild;
 }
 
 template<class Type>
 TreeNode<Type>* TreeNode<Type>::getRightChild()
 {
-	return this->rightChild();
+	return this->rightChild;
 }
 
 template<class Type>
 TreeNode<Type>* TreeNode<Type>::getParent()
 {
-	return this->parent();
+	return this->parent;
 }
 
 template<class Type>

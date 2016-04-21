@@ -30,8 +30,6 @@ void NodeController::tryTree()
 
 }
 
-void
-
 void NodeController::testLists()
 {
 	numbers->addFront(3);
