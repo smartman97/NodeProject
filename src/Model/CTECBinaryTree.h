@@ -27,7 +27,7 @@ private:
 	int calculatedSize(TreeNode<Type>* currentNode);
 	TreeNode<Type>* getRightMostChild(CTECBinaryTree* leftSubTree);
 	TreeNode<Type>* getLeftMostChild(CTECBinaryTree* rightSubTree);
-	void remove(TreeNode<Type>* currentNode);
+	void remove(TreeNode<Type>* nodeToRemove);
 public:
 	CTECBinaryTree();
 	virtual ~CTECBinaryTree();
