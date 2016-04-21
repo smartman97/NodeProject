@@ -30,9 +30,19 @@ void NodeController::tryTree()
 	testTree.insert(7);
 	testTree.insert(3);
 
+	cout << "INORDER TRAVERSAL" << endl;
 	testTree.inorderTraversal(testTree.getRoot());
+	cout << " Tree" << endl;
 
-	cout << "Tree" << endl;
+	cout << "PREORDER TRAVERSAL" << endl;
+	testTree.preorderTraversal(testTree.getRoot());
+	cout << " Tree" << endl;
+
+	cout << "POSTORDER TRAVERSAL" << endl;
+	testTree.postorderTraversal(testTree.getRoot());
+	cout << " Tree" << endl;
+
+	cout << testTree.contains(5) << endl;
 }
 
 void NodeController::testLists()

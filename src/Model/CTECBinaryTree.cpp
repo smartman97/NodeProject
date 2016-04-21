@@ -19,10 +19,7 @@ CTECBinaryTree<Type>::CTECBinaryTree()
 template<class Type>
 CTECBinaryTree<Type>::~CTECBinaryTree()
 {
-	while(root != nullptr)
-	{
-		remove(root);
-	}
+
 }
 
 template<class Type>
@@ -182,7 +179,7 @@ void CTECBinaryTree<Type>::inorderTraversal(TreeNode<Type>* currentNode)
 	if(currentNode != nullptr)
 	{
 		inorderTraversal(currentNode->getLeftChild());
-		cout << currentNode->getValue() << "";
+		cout << currentNode->getValue() << ", ";
 		inorderTraversal(currentNode->getRightChild());
 	}
 }
@@ -192,7 +189,7 @@ void CTECBinaryTree<Type>::preorderTraversal(TreeNode<Type>* currentNode)
 {
 	if(currentNode != nullptr)
 	{
-		cout << currentNode->getValue() << "";
+		cout << currentNode->getValue() << ", ";
 		inorderTraversal(currentNode->getLeftChild());
 		inorderTraversal(currentNode->getRightChild());
 	}
@@ -205,7 +202,7 @@ void CTECBinaryTree<Type>::postorderTraversal(TreeNode<Type>* currentNode)
 	{
 		inorderTraversal(currentNode->getLeftChild());
 		inorderTraversal(currentNode->getRightChild());
-		cout << currentNode->getValue() << "";
+		cout << currentNode->getValue() << ", ";
 	}
 }
 
