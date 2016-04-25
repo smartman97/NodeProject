@@ -29,6 +29,10 @@ void NodeController::tryTree()
 	testTree.insert(5);
 	testTree.insert(7);
 	testTree.insert(3);
+	testTree.insert(111);
+	testTree.insert(4563);
+	testTree.insert(0);
+	testTree.insert(-13);
 
 	cout << "INORDER TRAVERSAL" << endl;
 	testTree.inorderTraversal(testTree.getRoot());
@@ -43,6 +47,12 @@ void NodeController::tryTree()
 	cout << " Tree" << endl;
 
 	cout << testTree.contains(5) << endl;
+
+	testTree.remove(5);
+
+	cout << "INORDER TRAVERSAL" << endl;
+	testTree.inorderTraversal(testTree.getRoot());
+	cout << " Tree" << endl;
 }
 
 void NodeController::testLists()

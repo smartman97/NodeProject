@@ -110,11 +110,11 @@ void CTECBinaryTree<Type>::remove(const Type& value)
 		}
 		else if(trailing->getValue() > value)
 		{
-			remove(trailing->getLeftChild);
+			remove(trailing->getLeftChild());
 		}
 		else
 		{
-			remove(trailing->getRightChild);
+			remove(trailing->getRightChild());
 		}
 	}
 }

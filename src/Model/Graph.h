@@ -14,7 +14,7 @@ class Graph
 {
 private:
 	static const int MAXIMUM = 20;
-	bool edges [MAXIMUM][MAXIMUM];
+	bool edges [MAXIMUM][MAXIMUM]; //This is the adjacency matrix.
 	Type labels [MAXIMUM];
 	int manyVertices;
 public:
