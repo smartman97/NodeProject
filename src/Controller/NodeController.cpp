@@ -20,7 +20,29 @@ NodeController::~NodeController()
 
 void NodeController::start()
 {
-	tryTree();
+	tryGraph();
+}
+
+void NodeController::tryGraph()
+{
+	Graph<int> testerGraph;
+	testerGraph.addVertex(7);
+	testerGraph.addVertex(18);
+	testerGraph.addVertex(1);
+	testerGraph.addVertex(-11);
+	testerGraph.addVertex(10);
+	testerGraph.addVertex(50);
+	testerGraph.addVertex(110);
+
+	testerGraph.addEdge(0, 1);
+	testerGraph.addEdge(1, 2);
+	testerGraph.addEdge(2, 3);
+	testerGraph.addEdge(3, 4);
+	testerGraph.addEdge(4, 5);
+	testerGraph.addEdge(5, 6);
+
+	testerGraph.breathFirstTraversal(, 0);
+
 }
 
 void NodeController::tryTree()

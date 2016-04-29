@@ -23,6 +23,9 @@
 #include "../Model/CTECBinaryTree.h"
 #include "../Model/CTECBinaryTree.cpp"
 
+#include "../Model/Graph.h"
+#include "../Model/Graph.cpp"
+
 #include "../Model/Timer.h"
 
 
@@ -37,6 +40,7 @@ private:
 	CTECArray<int> * notHipsterInts;
 	CTECList<int> * numbers;
 	Timer arrayTimer;
+	void tryGraph();
 	void testLists();
 	void checkSorts();
 	int * mergeData;

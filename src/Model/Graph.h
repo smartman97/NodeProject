@@ -17,6 +17,8 @@ private:
 	bool edges [MAXIMUM][MAXIMUM]; //This is the adjacency matrix.
 	Type labels [MAXIMUM];
 	int manyVertices;
+
+	void depthFirstTraversal(Graph<Type> currentGraph, int vertex, bool * markedVertices);
 public:
 	Graph();
 	virtual ~Graph();
@@ -30,6 +32,9 @@ public:
 	bool isEdge(int source, int target) const;
 	std::set<int> neighbors(int vertex) const;
 	Type operator [] (int vertex) const;
+
+	void depthFirstTraversal(Graph<Type>  currentGraph, int vertex);
+	void breathFirstTraversal(Graph<Type> currentGraph, int vertex);
 };
 
 #endif /* MODEL_GRAPH_H_ */
