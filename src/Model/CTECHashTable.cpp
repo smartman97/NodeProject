@@ -31,9 +31,14 @@ int CTECHashTable<Type> :: getSize()
 template<class Type>
 void CTECHashTable<Type> :: add(const Type& value)
 {
-	//Update size if needed. Find where to put the value.
 	if(!contains(value))
 	{
+		//Update size if needed. Find where to put the value.
+		if(this->size/this->capacity >= this->efficiencyPercentage)
+		{
+			updateSize();
+		}
+
 		int positionToInsert = findPosition(value);
 
 		if(internalStorage[positionToInsert] != nullptr)
