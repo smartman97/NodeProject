@@ -15,7 +15,7 @@ private:
 	int capacity;
 	double efficiencyPercentage;
 	int size;
-	Type* interalStorage;
+	Type* internalStorage;
 
 	void updateSize();
 	int findPosition(const Type& value);
@@ -26,6 +26,7 @@ public:
 	void add(const Type& value);
 	bool remove(const Type& value);
 	bool contains(const Type& value);
+	int getSize();
 };
 
 #endif /* MODEL_CTECHASHTABLE_H_ */

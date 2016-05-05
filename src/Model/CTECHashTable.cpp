@@ -8,15 +8,47 @@
 #include "CTECHashTable.h"
 
 template<class Type>
-CTECHashTable::CTECHashTable()
+CTECHashTable<Type> :: CTECHashTable()
 {
-	// TODO Auto-generated constructor stub
-
+	this->capacity = 101;
+	this-efficiencyPercentage = .667;
+	this->size = 0;
+	this->internalStorage= new Type[capacity];
 }
 
 template<class Type>
-CTECHashTable::~CTECHashTable()
+CTECHashTable<Type> :: ~CTECHashTable()
 {
-	// TODO Auto-generated destructor stub
+	delete [] internalStorage;
+}
+
+template<class Type>
+int CTECHashTable<Type> :: getSize()
+{
+	return this->size();
+}
+
+template<class Type>
+void CTECHashTable<Type> :: add(const Type& value)
+{
+	//Update size if needed. Find where to put the value.
+	if(!contains(value))
+	{
+		int positionToInsert = findPosition(value);
+
+		if(internalStorage[positionToInsert] != nullptr)
+		{
+			//Loop over the internalStorage to find the next empty slot. Insert the value there.
+			while(internalStorage[positionToInsert != nullptr])
+			{
+				positionToInsert = (positionToInsert + 1) % size;
+			}
+			internalStorage[positionToInsert] = value;
+		}
+		else
+		{
+			internalStorage[positionToInsert] = value;
+		}
+	}
 }
 
