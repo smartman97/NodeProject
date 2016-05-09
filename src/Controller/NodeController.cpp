@@ -41,7 +41,11 @@ void NodeController::tryGraph()
 	testerGraph.addEdge(4, 5);
 	testerGraph.addEdge(5, 6);
 
+	cout << "Breath First Traversal" << endl;
 	testerGraph.breathFirstTraversal(testerGraph, 0);
+
+	cout << "Depth First Traversal" << endl;
+	testerGraph.depthFirstTraversal(testerGraph, 0);
 }
 
 void NodeController::tryTree()

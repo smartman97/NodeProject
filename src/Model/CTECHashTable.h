@@ -23,6 +23,9 @@ private:
 	void updateSize();
 	int findPosition(HashNode<Type> currentNode);
 	int handleCollision(HashNode<Type> currentNode);
+
+	int getNextPrime();
+	bool isPrime(int candidateNumber);
 public:
 	CTECHashTable();
 	virtual ~CTECHashTable();
