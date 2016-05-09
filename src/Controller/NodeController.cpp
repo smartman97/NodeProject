@@ -40,6 +40,8 @@ void NodeController::tryGraph()
 	testerGraph.addEdge(3, 4);
 	testerGraph.addEdge(4, 5);
 	testerGraph.addEdge(5, 6);
+
+	testerGraph.breathFirstTraversal(testerGraph, 0);
 }
 
 void NodeController::tryTree()

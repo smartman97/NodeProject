@@ -8,6 +8,8 @@
 #ifndef MODEL_CTECHASHTABLE_H_
 #define MODEL_CTECHASHTABLE_H_
 
+#include "CTECArray.cpp"
+
 template<class Type>
 class CTECHashTable
 {
@@ -15,17 +17,18 @@ private:
 	int capacity;
 	double efficiencyPercentage;
 	int size;
-	Type* internalStorage;
+	HashNode<Type>* internalStorage;
 
 	void updateSize();
-	int findPosition(const Type& value);
-	int handleCollision(const Type& value);
+	int findPosition(HashNode<Type> currentNode);
+	int handleCollision(HashNode<Type> currentNode);
 public:
 	CTECHashTable();
 	virtual ~CTECHashTable();
-	void add(const Type& value);
-	bool remove(const Type& value);
-	bool contains(const Type& value);
+
+	void add(HashNode<Type> currentNode);
+	bool remove(HashNode<Type> currentNode);
+	bool contains(HashNode<Type> currentNode);
 	int getSize();
 };
 
