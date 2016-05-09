@@ -57,7 +57,7 @@ void Graph<Type>::addVertex(const Type& vertexLabel)
 		edges[newVertexNumber][otherNumber] = false;
 	}
 
-	vertexLabel[newVertexNumber] = vertexLabel;
+	labels[newVertexNumber] = vertexLabel;
 }
 
 template<class Type>

@@ -9,6 +9,7 @@
 #define MODEL_CTECHASHTABLE_H_
 
 #include "CTECArray.cpp"
+#include "HashNode.cpp"
 
 template<class Type>
 class CTECHashTable

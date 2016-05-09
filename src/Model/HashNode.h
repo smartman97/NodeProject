@@ -15,7 +15,7 @@ private:
 	int key;
 	Type value;
 public:
-	HashNode();
+	HashNode(int key, Type value);
 	virtual ~HashNode();
 
 	void setKey(int key);
