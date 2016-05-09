@@ -133,3 +133,24 @@ void CTECHashTable<Type> :: updateSize()
 	}
 	internalStorage = updatedStorage;
 }
+
+template<class Type>
+bool CTECHashTable<Type> :: contains(HashNode<Type> currentNode)
+{
+	bool isInTable = false;
+
+	int index = findPosition(currentNode);
+	while(internalStorage[index] != nullptr && !isInTable)
+	{
+		if(internalStorage[index].getValue() == currentNode.getValue())
+		{
+			isInTable = true;
+		}
+		else
+		{
+		index(index + 1) % capacity;
+		}
+	}
+
+	return isInTable;
+}
