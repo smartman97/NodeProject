@@ -9,40 +9,40 @@
 #include <cmath>
 
 template<class Type>
-CTECHashTable<Type> :: CTECHashTable()
+CTECHashTable<Type>::CTECHashTable()
 {
 	this->capacity = 101;
-	this-efficiencyPercentage = .667;
+	this - efficiencyPercentage = .667;
 	this->size = 0;
-	this->internalStorage= new HashNode<Type>[capacity];
+	this->internalStorage = new HashNode<Type> [capacity];
 }
 
 template<class Type>
-CTECHashTable<Type> :: ~CTECHashTable()
+CTECHashTable<Type>::~CTECHashTable()
 {
-	delete [] internalStorage;
+	delete[] internalStorage;
 }
 
 template<class Type>
-int CTECHashTable<Type> :: getSize()
+int CTECHashTable<Type>::getSize()
 {
 	return this->size;
 }
 
 template<class Type>
-void CTECHashTable<Type> :: add(HashNode<Type> currentNode)
+void CTECHashTable<Type>::add(HashNode<Type> currentNode)
 {
-	if(!contains(currentNode))
+	if (!contains(currentNode))
 	{
 		//Update size if needed. Find where to put the value.
-		if(this->size/this->capacity >= this->efficiencyPercentage)
+		if (this->size / this->capacity >= this->efficiencyPercentage)
 		{
 			updateSize();
 		}
 
 		int positionToInsert = findPosition(currentNode);
 
-		if(internalStorage[positionToInsert] != nullptr)
+		if (internalStorage[positionToInsert] != nullptr)
 		{
 			//Loop over the internalStorage to find the next empty slot. Insert the value there.
 			while(internalStorage[positionToInsert] != nullptr)
@@ -59,7 +59,7 @@ void CTECHashTable<Type> :: add(HashNode<Type> currentNode)
 }
 
 template<class Type>
-int CTECHashTable<Type> :: findPosition(HashNode<Type> currentNode)
+int CTECHashTable<Type>::findPosition(HashNode<Type> currentNode)
 {
 	//We are going to "hash" the key of the hashnode to find its storage spot.
 	int position = 0;
@@ -70,11 +70,11 @@ int CTECHashTable<Type> :: findPosition(HashNode<Type> currentNode)
 }
 
 template<class Type>
-int CTECHashTable<Type> :: getNextPrime()
+int CTECHashTable<Type>::getNextPrime()
 {
 	int nextPrime = (capacity * 2) + 1;
 
-	while(!isPrime(nextPrime))
+	while (!isPrime(nextPrime))
 	{
 		nextPrime++;
 	}
@@ -83,27 +83,27 @@ int CTECHashTable<Type> :: getNextPrime()
 }
 
 template<class Type>
-bool CTECHashTable<Type> :: isPrime(int candidateNumber)
+bool CTECHashTable<Type>::isPrime(int candidateNumber)
 {
 	bool isPrime = true;
 
-	if(candidateNumber <= 1)
+	if (candidateNumber <= 1)
 	{
 		return false;
 	}
-	else if(candidateNumber == 2 || candidateNumber == 3)
+	else if (candidateNumber == 2 || candidateNumber == 3)
 	{
 		isPrime = true;
 	}
-	else if(candidateNumber % 2 == 0)
+	else if (candidateNumber % 2 == 0)
 	{
 		isPrime = false;
 	}
 	else
 	{
-		for(int next = 3; next <= sqrt(candidateNumber) + 1; next += 2)
+		for (int next = 3; next <= sqrt(candidateNumber) + 1; next += 2)
 		{
-			if(candidateNumber  % next == 0)
+			if (candidateNumber % next == 0)
 			{
 				isPrime = false;
 				break;
@@ -115,7 +115,7 @@ bool CTECHashTable<Type> :: isPrime(int candidateNumber)
 }
 
 template<class Type>
-void CTECHashTable<Type> :: updateSize()
+void CTECHashTable<Type>::updateSize()
 {
 	int updatedCapacity = getNextPrime();
 	HashNode<Type> updatedStorage = new HashNode<Type> [updatedCapacity];
@@ -123,24 +123,24 @@ void CTECHashTable<Type> :: updateSize()
 	int oldCapacity = capacity;
 	capacity = updatedCapacity;
 
-	for(int index = 0; index < capacity; index++)
+	for (int index = 0; index < capacity; index++)
 	{
-		if(internalStorage[index] != nullptr)
+		if (internalStorage[index] != nullptr)
 		{
-			 int updatedPosition = findPosition(internalStorage[index]);
-			 updatedStorage[updatedPosition] = internalStorage[index];
+			int updatedPosition = findPosition(internalStorage[index]);
+			updatedStorage[updatedPosition] = internalStorage[index];
 		}
 	}
 	internalStorage = updatedStorage;
 }
 
 template<class Type>
-bool CTECHashTable<Type> :: contains(HashNode<Type> currentNode)
+bool CTECHashTable<Type>::contains(HashNode<Type> currentNode)
 {
 	bool isInTable = false;
 
 	int index = findPosition(currentNode);
-	while(internalStorage[index] != nullptr && !isInTable)
+	while (internalStorage[index] != nullptr&& !isInTable)
 	{
 		if(internalStorage[index].getValue() == currentNode.getValue())
 		{
@@ -148,9 +148,33 @@ bool CTECHashTable<Type> :: contains(HashNode<Type> currentNode)
 		}
 		else
 		{
-		index(index + 1) % capacity;
+			index(index + 1) % capacity;
 		}
 	}
 
 	return isInTable;
+}
+
+template<class Type>
+bool CTECHashTable<Type>::remove(HashNode<Type> currentNode)
+{
+	bool wasRemoved = false;
+
+	if (contains(currentNode))
+	{
+		while (internalStorage[index] != nullptr&& !wasRemoved)
+		{
+			if(internalStorage[index].getValue() == currentNode.getValue())
+			{
+				wasRemoved = true;
+				internalStorage[index] = nullptr;
+			}
+			else
+			{
+				index = (index + 1) % capacity;
+			}
+		}
+	}
+
+	return wasRemoved;
 }
