@@ -58,6 +58,7 @@ void CTECHashTable<Type>::add(HashNode<Type> currentNode)
 			}
 		}
 		internalStorage[positionToInsert] = &currentNode;
+		size++;
 	}
 }
 

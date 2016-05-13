@@ -27,7 +27,7 @@ void NodeController::testTable()
 {
 	CTECHashTable<int> tempTable;
 	HashNode<int> tempArray[10];
-	for(int spot = 0; spot < 10; spot++)
+	for (int spot = 0; spot < 10; spot++)
 	{
 		int randomValue = rand();
 		int randomKey = rand();
@@ -35,17 +35,20 @@ void NodeController::testTable()
 		tempTable.add(temp);
 		tempArray[spot] = temp;
 	}
-	bool test = tempTable.contains(tempArray[0]);
-	string result;
-	if(test)
+	for (int index = 0; index < 100; index++)
 	{
-		result = "It's there.";
+		bool test = tempTable.contains(tempArray[index]);
+		string result;
+		if (test)
+		{
+			result = "It's there.";
+		}
+		else
+		{
+			result = "Not anywhere.";
+		}
+		cout << result << endl;
 	}
-	else
-	{
-		result = "Not anywhere.";
-	}
-	cout << result << endl;
 }
 
 void NodeController::tryGraph()
