@@ -7,6 +7,13 @@
 
 #include "HashNode.h"
 
+
+template<class Type>
+HashNode<Type> :: HashNode()
+{
+
+}
+
 template<class Type>
 HashNode<Type> :: HashNode(int key, Type value)
 {

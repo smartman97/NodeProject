@@ -26,6 +26,9 @@
 #include "../Model/Graph.h"
 #include "../Model/Graph.cpp"
 
+#include "../Model/CTECHashTable.cpp"
+#include "../Model/CTECHashTable.h"
+
 #include "../Model/Timer.h"
 
 
@@ -53,6 +56,7 @@ private:
 	void swap(int first, int last);
 	void doQuick();
 	void tryTree();
+	void testTable();
 public:
 	NodeController();
 	virtual ~NodeController();

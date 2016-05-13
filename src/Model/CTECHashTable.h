@@ -8,20 +8,29 @@
 #ifndef MODEL_CTECHASHTABLE_H_
 #define MODEL_CTECHASHTABLE_H_
 
-#include "CTECArray.cpp"
+
+#include "CTECList.h"
 #include "HashNode.cpp"
+
 
 template<class Type>
 class CTECHashTable
 {
 private:
 	int capacity;
+	int tableCapacity;
 	double efficiencyPercentage;
 	int size;
-	HashNode<Type>* internalStorage;
+	int tableSize;
+	HashNode<Type>** internalStorage;
+	CTECList<HashNode<Type> > * tableStorage;
 
+	void updateTableCapacity();
 	void updateSize();
+
 	int findPosition(HashNode<Type> currentNode);
+	int findTablePosition(HashNode<Type> currentNode);
+
 	int handleCollision(HashNode<Type> currentNode);
 
 	int getNextPrime();
@@ -30,7 +39,9 @@ public:
 	CTECHashTable();
 	virtual ~CTECHashTable();
 
+	void addToTable(HashNode<Type> currentNode);
 	void add(HashNode<Type> currentNode);
+
 	bool remove(HashNode<Type> currentNode);
 	bool contains(HashNode<Type> currentNode);
 	int getSize();
