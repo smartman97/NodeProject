@@ -32,10 +32,11 @@ void NodeController::testTable()
 		int randomValue = rand();
 		int randomKey = rand();
 		HashNode<int> temp = HashNode<int>(randomKey, randomValue);
+		cout << temp.getValue() << endl;
 		tempTable.add(temp);
 		tempArray[spot] = temp;
 	}
-	for (int index = 0; index < 100; index++)
+	for (int index = 0; index < 10; index++)
 	{
 		bool test = tempTable.contains(tempArray[index]);
 		string result;
